@@ -161,7 +161,7 @@ class ApiVM: ObservableObject {
                     
                     UserDefaultManager.shared.setLoginYN(loginYN: true)
                     UserDefaultManager.shared.setApiKey(apiKey: receivedUser.token.accessToken)
-                    
+                    UserDefaultManager.shared.setUserDetail(userDetailDto: receivedUser.userDetail)
                     
                     self.loginData.loginYn = true
                     self.loginData.accesstoken = receivedUser.token.accessToken
@@ -267,12 +267,12 @@ class ApiVM: ObservableObject {
                     UserDefaultManager.shared.setLoginYN(loginYN: true)
                     UserDefaultManager.shared.setApiKey(apiKey: receivedUser.token.accessToken)
                     
-                    
+                    UserDefaultManager.shared.setUserDetail(userDetailDto: receivedUser.userDetail)
                     self.loginData.loginYn = true
                     self.loginData.accesstoken = receivedUser.token.accessToken
-                    self.loginData.socialType = "google"
+                    
                 } else if receivedUser.user.error == "11" {
-                    self.loginData.socialType = "google"
+                    
                 } else {
                     self.alertData.showAlert = true
                     self.alertData.alertMsg = receivedUser.user.errorMsg
@@ -280,7 +280,7 @@ class ApiVM: ObservableObject {
                     self.loginData.loginYn = false
                     self.loginData.accesstoken = ""
                 }
-                
+                self.loginData.socialType = "google"
                 self.googleLoginReturn = receivedUser.user
                 self.tokenReturn = receivedUser.token
                 self.googleSocialLoginSuccess.send()

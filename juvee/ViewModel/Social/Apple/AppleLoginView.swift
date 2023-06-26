@@ -29,7 +29,7 @@ struct AppleLoginView: View {
                     // Handle the authorization completion
                     switch result {
                     case .success(let authResult):
-                        self.appStateData.loading = true
+                        //self.appStateData.loading = true
                         self.loginData.socialType = "apple"
                         self.loginData.authorization = authResult
                         // Handle the successful authorization

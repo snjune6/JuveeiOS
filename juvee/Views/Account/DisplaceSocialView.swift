@@ -150,7 +150,7 @@ struct DisplaceSocialView: View {
                 
                 self.apiVM.alertData = alertData
                 self.apiVM.alternateEmail(jwtToken: jwtToken, alternateEmail: defaultEmail, password: password, firstName: firstNameInput, lastName: lastNameInput, socialType: self.loginData.socialType)
-                
+                print("self.loginData.socialType : \(self.loginData.socialType)")
             }) {
                 Image("login_btn")
                     .foregroundColor(.white)
